@@ -1,0 +1,112 @@
+---
+title: "Intro to Docker"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r echo=FALSE}
+knitr::knit_hooks$set(hook_convert_odg = rmddochelper::hook_convert_odg)
+```
+
+# Monday 20112-12-03
+
+## Why docker?
+- Software needs to interact with other systems ==> DLL-hell in Windows, Libraries in *-ix
+
+- Hence encapsulation is a solution
+
+- Virtual machines as one solution, around for 20 years, but lots of overhead and performance is not like on native installations
+
+- Containers as a further development
+    + software and libraries are encapsulated into a container
+    + 
+    
+    
+## Getting started with docker
+
+{Break for windows users to get docker installed. }
+
+* Explaination of output from `docker run hello-world`. Basic terms are __docker client__ and __docker daemon__. 
+
+
+## Docker Client Operations
+
+Getting a list of containers
+
+```{bash}
+docker ps -a 
+```
+
+A list of images are obtained
+
+```{bash}
+docker images
+```
+
+
+## Repository of Images
+
+* Docker-hub at `hub.docker.com`
+* Search allows to search for images of a given name, e.g. search for `jupyter`
+
+```{r dockerhub, echo=FALSE, hook_convert_odg=TRUE, fig_path="odg"}
+#rmddochelper::use_odg_graphic(ps_path="odg/dockerhub.odg")
+knitr::include_graphics(path = "odg/dockerhub.png")
+```
+ 
+ 
+## Running Images as Containers
+ 
+* The command `docker run ubuntu` attempts to run the docker container called `ubuntu`. 
+* Showing the list of containers is given by `docker ps -a`
+ 
+ 
+# Part 2 (Slide 2) : Using JWAS 
+ 
+* Pulling the image 
+* Starting 
+* The result opened in the browser
+ 
+```{r jupyterstart, echo=FALSE, hook_convert_odg=TRUE, fig_path="odg"}
+#rmddochelper::use_odg_graphic("odg/jupyterstart.odg")
+knitr::include_graphics(path = "odg/jupyterstart.png")
+```
+ 
+
+## Getting Started with Jupyter and Julia
+Once the above content appears in the browser, we can get started with `jupyter notebooks`. Some features are explained in the screenshot below
+
+```{r jupyterfeature, echo=FALSE, hook_convert_odg=TRUE, fig_path="odg"}
+#rmddochelper::use_odg_graphic(ps_path = "odg/jupyterfeature.odg")
+knitr::include_graphics(path = "odg/jupyterfeature.png")
+```
+
+In the note book `firstJuliaNotebook`, some basics about data types are shown and explained. 
+
+
+## Dataframes
+The notebook `notebook_IO_dataFrames` contains an introduction about how to work with dataframes in `Julia`. Dataframes are defined in package `DataFrames`. For reading data the package `DelimitedFiles` is used. Inside this package, the function `readdelim` can be used to read delimited files
+
+
+## Strings vs. Characters
+* Strings are in double-quotes
+* Characters are in single-quotes
+
+
+## Include Julia Into Rmd
+According to https://bookdown.org/yihui/rmarkdown/language-engines.html, it is possible to include other languages into Rmd documents. The package `JuliaCall` (https://non-contradiction.github.io/JuliaCall/) is used for a seamless integration of Julia into Rmarkdown.  The following chunks try to demonstrate that
+
+```{julia}
+myAge = 50
+myAge
+```
+
+The question is what type of variable is `myAge`
+
+```{julia}
+typeof(myAge)
+```
+
+
+   

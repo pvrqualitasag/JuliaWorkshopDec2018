@@ -1,0 +1,80 @@
+---
+title: "Day 2 -- Simulation Of Data"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+## Disclaimer
+This nb gives an overview
+
+
+## Resources
+Website for packages shown is available at `qtl.rocks`. __NB__: `XSim` should be pronounced as "cross-sim". Some documentation is available from the XSim GitHub page (https://github.com/reworkhow/XSim.jl). 
+
+
+## Strategies
+XSim can use existing genotype data which requires to be phased, i.e., for each animal we have to know the maternal and the paternal alleles. This can be done in any phasing program such as fImpute. 
+
+An alternative might be to start from scratch and simulate genotypes from scratch and do selection over a certain number of generations.
+
+
+## Alternative Simulation Program
+Rohan also recommends QMSim (http://animalbiosciences.uoguelph.ca/~msargol/qmsim/) as a simulation package. 
+
+
+## NB XSimMating
+The notebook `XSimMating` contains an example of sampling a population based on input data that is partially read from input files. In the first section (`Defining the genome and reading a real marker catalogue`) the basic parameters of the genome are set. These parameters correspond to 
+
+```{r tabgenomeparam, echo=FALSE, results='asis'}
+tbl_genome_par <- tibble::data_frame( `Parameter Name` = c("mutRate",
+                                                           "numChr",
+                                                           "nLoci",
+                                                           "chrLength",
+                                                           "numLoci",
+                                                           "mutationRate",
+                                                           "myData",
+                                                           "mp1",
+                                                           "mp2",
+                                                           "mapPos"),
+                                      Description = c("Mutation Rate",
+                                                      "Number of Chromosomes",
+                                                      "Number of Loci",
+                                                      "Chromosome Length",
+                                                      "Number of Loci for each chromosome",
+                                                      "Mutation Rate (difference between mutRat?)",
+                                                      "Markerposition as strings",
+                                                      "Map position for chr1 as float64",
+                                                      "Map position for chr2 as float64",
+                                                      "combined map positions"),
+                                      Source = c("assigned",
+                                                 "assigned",
+                                                 "assigned",
+                                                 "assigned",
+                                                 "assigned",
+                                                 "assigned",
+                                                 "read from input file",
+                                                 "converted from myData",
+                                                 "converted from myData",
+                                                 "combined from mp1 and mp2"
+                                                 ))
+knitr::kable(tbl_genome_par,
+             booktabs = TRUE,
+             longtable = TRUE)
+```
+
+Positions of all genetic loci (markers and qtl) for the two chromosomes are read from an input file (`markerCatalogue4JuliaChrom1-2`). The indices of the loci which are taken as QTL are determined randomly. QTL-effects are sampled from normal distribution. The information collected so far is used to call the function `build_genome()`. 
+
+
+### Function `build_genome()`
+The ipnb `UnrollingBuildGenome` contains a description of how the genome object is set up.
+
+
+### Function `sample_founder()`
+In the function `sample_founder()` the cohorts are defined where cohorts basically correspond to arrays of `Animal` objects. At first, a simple cohort for male and female animals is created which is eventually split up into cohorts with only males and only females based on index subselection on the complete cohort object.
+
+
+### Function `sampleDHLines()`
+TBC
+
