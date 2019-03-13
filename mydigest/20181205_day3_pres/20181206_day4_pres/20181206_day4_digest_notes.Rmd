@@ -1,0 +1,19 @@
+---
+title: "Day 4 -- Digestion Notes"
+output: html_notebook
+---
+
+
+## Presentation by Rohan: Bayesian Multiple Linear Regression for GWAS
+
+* Resources: 
+    + `LICSeminar.ipynb`
+    + Application of Whole-Genome Prediction Methods for Genome-Wide Association: A Bayesian Approach; Ferando et al.
+    + Genome-Wide Association ...; Cheng, Templeman and Fernando
+    + Controling the Rate of False Positive ... ; Fernando, Southey, ..., Soller
+* Hypothesis testing: classical approach
+
+* Summary:
+    + 
+
+* Acceptance in Statistics, big people like Matthew Stevens and Andrew Gelman do not think that there should be a multiple testing penalty.

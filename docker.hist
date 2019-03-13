@@ -1,0 +1,10 @@
+  612  docker run -it --rm -p 8888:8888 -v /Users/pvr/Data/Projects/Github/pvrqualitasag/JuliaWorkshopDec2018/dataCourse:/home/jovyan/work qtlrocks/jwas-docker-rstudio
+  613  docker run -it --rm -p 8888:8888 -v /Users/pvr/Data/Projects/Github/pvrqualitasag/JuliaWorkshopDec2018/dataCourse:/home/jovyan/work qtlrocks/jwas-docker-rstudio
+  614  docker images
+  615  docker run -it --rm -p 8888:8888 -v /Users/pvr/Data/Projects/Github/pvrqualitasag/JuliaWorkshopDec2018/dataCourse:/home/jovyan/work qtlrocks/jwas-docker
+  616  docker ps -a
+  617  docker images
+  618  docker run -it --rm -p 8888:8888 -v /Users/pvr/Data/Projects/Github/pvrqualitasag/JuliaWorkshopDec2018/dataCourse:/home/jovyan/work qtlrocks/jwas-docker
+  619  docker run -it --rm -p 8888:8888 -v /Users/pvr/Data/Projects/Github/pvrqualitasag/JuliaWorkshopDec2018/dataCourse:/home/jovyan/work qtlrocks/jwas-docker
+  623  history | grep docker | tail -10
+  624  history | grep docker | tail -10 > docker.hist

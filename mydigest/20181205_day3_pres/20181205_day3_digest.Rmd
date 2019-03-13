@@ -1,0 +1,80 @@
+---
+title: "Day 3 -- Modelling"
+output: html_notebook
+---
+
+## Theory
+Statistical theory behind the modelling is explained in the ipnb called `theory`. 
+
+
+## JWASIntro
+From samples of marker effects, we can compute the Window sizes
+
+
+## Talk by Daniel Gianola on Bayesian Lasso
+Resources: A multi-trait Bayesian Lasso
+
+### First task
+
+* GWAS: search for association between some marker or genomic regions and phenotypes
+* Methods: mostly done with multiple regression
+
+### second task
+* Genome-enabled prediction
+
+### Calibration of prediction
+* cross-validation
+
+
+### Lasso Regression
+* used for variable selection, because there is a $L_1$- based penalty in the least squares objective function. 
+* use an iterative algorithm for Lasso (based on Tibshirani)
+
+
+### Bayesian Lasso
+* multiple linear regression 
+* double exponential distibution assigned as conditional, given $b=1/\lambda$
+* assign a prior distribution on the marker which is a double-exponential 
+
+
+## Objective
+* extension of Bayesian Lasso to multi-trait domain (MBL)
+* Multi-dimensional Laplace distribution with $T=1$ gives a double exponentional (DE) which can be used as priors for $\beta$ the marker effects
+
+
+## MCMC
+* based as Gibbs-Metropolis sampler 
+
+
+## Analysis of wheat data set
+
+
+## Multivariate Manhatten Plots
+* based on the Mahalanobis squared distances by method
+
+
+## Discussion
+* Why are the methods different
+    + for small datasets, the simple methods like (RR) work the best
+    + with more data, more complex models can have an advantage
+    
+
+## Multiple Testing
+In the Bayesian framework, multiple testing is not a problem. In frequentist approaches, multiple testing is a problem, because we pretend to know the distribution of the Null-Hypothesis. For just one test or one comparision extreme values of test-statistics are indicative about the rejection of $H_0$. But with many tests, extreme values are not unlikely. 
+
+* Morton suggested to use the probability of false positives (FP) in the rejections, i.e. among the significant results. 
+* Soller came up with an approach to estimate the probability of $H_0$ based on the $p$-value and the also the power could be applied. See paper in Genetics
+* Fernando and Soller have a paper to get FP
+* FDR for just one test is the same as ordinary testing.
+
+In BayesC$\pi$, the probability of the null hypothesis is the same as $\pi$. 
+
+
+## Exercise in the Multiple Testing NB
+The question coming up in the discussion about the result was why RR-BLUP was worse with more data than with fewer data. One possible explanaition was that the variance in RR-BLUP is fixed and given by the true value which might be too large. A possible solution was to do BayesC0 and compare that to the other approaches. In BayesC0, the variance is also estimated. 
+
+
+
+
+
+
